@@ -1,0 +1,73 @@
+<nav class="nav-button">
+    <ul>
+        <li><a href="<?= $requestUrl ?>/admin/post">Gérer les articles</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/team">Gérer l'équipe</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/competition">Gérer les compétitions</a></li>
+    </ul>
+</nav>
+<section class=" container">
+    <?php if(isset($players)):?>
+        <h2>EQUIPE BAYER LEVERKUSEC</h2>
+        <div class="team-admin">
+        <fieldset class="fieldset-team-admin">
+            <legend>Ajouter un joueur</legend>
+            <form action="<?= $requestUrl ?>/admin/team?action=insert-player" method="post">
+                <div class="field">
+                    <label for="name">Prénom : </label>
+                    <input type="text" name="name" value="" maxlength="30" required>
+                </div>
+                <div class="field">
+                    <label for="pseudo">Alias :</label>
+                    <input type="text" name="pseudo" value="" maxlength="30" required>
+                </div>
+                <div class="field">
+                    <label for="description">Description : </label>
+                    <input type="text" name="description" value="" maxlength="100" required>
+                </div>
+                <div class="field">
+                    <label for="number">Numéro : </label>
+                    <input type="text" name="number" value=""  required>
+                </div>
+                <div class="field">
+
+                    <label for="position">Position : </label>
+                    <select class="" name="position_code" required>
+                        <?php foreach ($positions as $position) :?>
+                            <option  value="<?=$position['position_code']?>"><?=$position['position']?></option>
+                        <?php endforeach ;?>
+                    </select>
+                </div>
+                <div class="div-button">
+                    <input type="submit" name="button_insert" value="Ajouter un joueur">
+                </div>
+            </form>
+        </fieldset>
+        <table class="table table-team-admin">
+            <thead>
+                <tr>
+                    <td>Position</td>
+                    <td>Numéro</td>
+                    <td>Nom</td>
+                    <td>Alias</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($players as $player): ?>
+                    <tr>
+                        <td><?=$player['position']?></td>
+                        <td><?=$player['number']?></td>
+                        <td><?=$player['name']?></td>
+                        <td><?=$player['pseudo']?></td>
+                        <td><?=$player['description']?></td>
+                        <td class="cell-button">
+                            <div class="edit-player" data-id="<?=$player['player_id']?>"><i class="fas fa-pen"></i></div>
+                            <div class="delete-player" data-id="<?=$player['player_id']?>"><i class="fas fa-trash-alt"></i></div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        </div>
+    <?php endif;?>
+</section>

@@ -1,0 +1,130 @@
+<nav class="nav-button">
+    <ul>
+        <li><a href="<?= $requestUrl ?>/admin/post">Gérer les articles</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/team">Gérer l'équipe</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/competition">Gérer les compétitions</a></li>
+    </ul>
+</nav>
+<nav class="nav-button">
+    <ul>
+        <li><a href="<?= $requestUrl ?>/admin/competition/championship">Championnat</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/competition/cup">Coupe</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/competition/team">Equipe</a></li>
+    </ul>
+</nav>
+<!--
+<?php if(!isset($_GET['competition_id'])) :?>
+    <h2>championnats</h2>
+    <nav class="admin-nav">
+        <ul>
+        <?php foreach ($championshipsList as $championship): ?>
+            <li>
+                <a href="<?= $requestUrl ?>/admin/competition/championship?competition_id=<?=$championship['competition_id']?>"><?=$championship['name'];?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </nav>
+    <fieldset class="fieldset-competition-championship-admin">
+        <legend>Ajouter un championnat</legend>
+        <form action="<?= $requestUrl ?>/admin/competition/championship?action=insert-championship" method="post">
+            <div class="field">
+                <label for="name">Nom du championnat: </label>
+                <input type="text" name="name" value="" maxlength="30" required>
+            </div>
+            <div class="field">
+                <label for="nb_team">Nombre d'équipes (avec exempt(s) et sans la notre) :</label>
+                <input type="text" name="nb_team" value="" maxlength="30" required>
+            </div>
+            <div class="field input-teams">
+
+            </div>
+            <div class="div-button">
+                <input type="submit" name="button_insert" value="Ajouter un championnat">
+            </div>
+        </form>
+    </fieldset>
+
+<?php else: ?>
+    <h2>championnat : <a href="<?= $requestUrl ?>/admin/competition/championship?competition_id=<?=$_GET['competition_id']?>"><?=$championship['name'];?></a></h2>
+    <div class="competition-championnats-admin">
+         <nav class="admin-nav">
+            <ul>
+                <li><h3>Calendrier</h3></li>
+                <li><h3>Classement</h3></li>
+            </ul>
+        </nav>
+        <div class="calendar-admin">
+            <?php   $i = 0;
+                    $j = 0;
+                    $matchPerDay = $calendar['matchPerDay'];
+            ?>
+            <?php foreach ($calendarLines as $calendarLine) :?>
+                <?php if($i % $matchPerDay == 0) : ?>
+                <table class="table-calendar-admin">
+                    <caption>Journée <?=$calendarLine['num_day']?></caption>
+                    <thead></thead>
+                    <tbody>
+                <?php endif; ?>
+                        <tr class="calendar-line" data-id="<?=$calendarLine['calendarLine_id']?>" data-competition="<?=$calendarLine['competition_id']?>">
+                            <td class="date"><?=$calendarLine['date']?></td>
+                            <td class="time"><?=$calendarLine['time']?></td>
+                            <td class="domicile">
+                                <?=$calendarLine['domicile']?>
+                            </td>
+                            <td class="resultat_domicile">
+                                <?=$calendarLine['resultat_domicile']?>
+                            </td>
+                            <td class="resultat_exterieur">
+                                <?=$calendarLine['resultat_exterieur']?>
+                            </td>
+                            <td class="exterieur">
+                                <?=$calendarLine['exterieur']?>
+                            </td>
+                            <td class="lieu"><?=$calendarLine['lieu']?></td>
+                            <td class="cell-button">
+                                <div class="edit-calendarline" data-id="<?=$calendarLine['calendarLine_id']?>" data-competition="<?=$calendarLine['competition_id']?>"><i class="fas fa-pen"></i></div>
+                            </td>
+                        </tr>
+                <?php if(($j-1) % $matchPerDay == 0) : ?>
+                    </tbody>
+                </table>
+                <?php endif ;?>
+                <?php $i++;?>
+            <?php endforeach;?>
+        </div>
+        <table class="table-ranking-admin">
+            <thead>
+                <tr>
+                    <td>Classement</td>
+                    <td>Equipe</td>
+                    <td>Pts</td>
+                    <td>J</td>
+                    <td>G</td>
+                    <td>N</td>
+                    <td>P</td>
+                    <td>Butpour</td>
+                    <td>Butcontre</td>
+                    <td>Diff</td>
+                </tr>
+            </thead>
+            <tbody>
+        <?php $i= 1;?>
+        <?php foreach ($championshipLines as $championshipLine): ?>
+            <tr data-id="<?=$i?>">
+                <td class="classement"><?= $i ;?></td>
+                <td class="name"><?= $championshipLine['name']?></td>
+                <td class="pts"><?= $championshipLine['pts']?></td>
+                <td class="J"><?= $championshipLine['J']?></td>
+                <td class="G"><?= $championshipLine['G']?></td>
+                <td class="N"><?= $championshipLine['N']?></td>
+                <td class="P"><?= $championshipLine['P']?></td>
+                <td class="Butpour"><?= $championshipLine['Butpour']?></td>
+                <td class="Butcontre"><?= $championshipLine['Butcontre']?></td>
+                <td class="Diff"><?= $championshipLine['Diff']?></td>
+            </tr>
+        <?php $i++; ?>
+        <?php endforeach; ?>
+            </tbody>
+        </table>
+<?php endif; ?>
+-->

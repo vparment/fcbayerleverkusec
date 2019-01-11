@@ -1,0 +1,150 @@
+<nav class="nav-button">
+    <ul>
+        <li><a href="<?= $requestUrl ?>/competition/championship">Championnats</a></li>
+        <li><a href="<?= $requestUrl ?>/competition/cup">Coupes</a></li>
+        <li><a href="<?= $requestUrl ?>/competition">Equipe</a></li>
+    </ul>
+</nav>
+<?php if(!isset($_GET['competition_id'])) :?>
+    <h2>championnats</h2>
+    <nav class="nav-button">
+        <ul>
+        <?php foreach ($championshipsList as $championship): ?>
+            <li>
+                <a href="<?= $requestUrl ?>/competition/championship?competition_id=<?=$championship['competition_id']?>"><?=$championship['name'];?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </nav>
+
+
+<?php else: ?>
+    <h2>championnat : <a href="<?= $requestUrl ?>/competition/championship?competition_id=<?=$_GET['competition_id']?>"><?=$championship['name'];?></a></h2>
+    <div class="competition-championnats">
+        <!-- <nav class="admin-nav">
+            <ul>
+                <li><h3>Calendrier</h3></li>
+                <li><h3>Classement</h3></li>
+            </ul>
+        </nav> -->
+        <div class="calendar-championship">
+            <?php   $i = 0;
+                    $j = 0;
+                    $matchPerDay = $calendar['matchPerDay'];
+            ?>
+            <?php foreach ($calendarLines as $calendarLine) :?>
+                <?php if ($i % $matchPerDay == 0) : ?>
+                <table class="table-calendar-championship">
+                    <caption>Journée <?=$calendarLine['num_day']?></caption>
+                    <thead></thead>
+                    <tbody>
+                <?php endif; ?>
+                        <tr class="calendar-line" data-id="<?=$calendarLine['calendarLine_id']?>" data-competition="<?=$calendarLine['competition_id']?>">
+                            <td class="date"><?=$calendarLine['date']?></td>
+                            <td class="time"><?=$calendarLine['time']?></td>
+                            <?php if($calendarLine['resultat_domicile'] > $calendarLine['resultat_exterieur']) : ?>
+                            <td class="domicile background-yellow font-bold">
+                                <?php if($calendarLine['domicile'] =="FC BAYER LEVERKUSEC") :?>
+                                    <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                <?php endif ;?>
+                                <?=$calendarLine['domicile']?>
+                                <?php if($calendarLine['domicile'] =="FC BAYER LEVERKUSEC") :?>
+                                    <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                <?php endif ;?>
+                            </td>
+                            <td class="resultat_domicile background-yellow font-bold">
+                                <?=$calendarLine['resultat_domicile']?>
+                            </td>
+                            <?php else : ?>
+                                <td class="domicile">
+                                    <?php if($calendarLine['domicile'] =="FC BAYER LEVERKUSEC") :?>
+                                        <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                    <?php endif ;?>
+                                    <?=$calendarLine['domicile']?>
+                                    <?php if($calendarLine['domicile'] =="FC BAYER LEVERKUSEC") :?>
+                                        <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                    <?php endif ;?>
+                                </td>
+                                <td class="resultat_domicile">
+                                    <?=$calendarLine['resultat_domicile']?>
+                                </td>
+
+
+                            <?php endif ;?>
+
+
+                            <?php if($calendarLine['resultat_exterieur'] > $calendarLine['resultat_domicile']) : ?>
+                            <td class="resultat_exterieur background-yellow font-bold">
+                                <?=$calendarLine['resultat_exterieur']?>
+                            </td>
+                            <td class="exterieur background-yellow font-bold">
+                                <?php if($calendarLine['exterieur'] =="FC BAYER LEVERKUSEC") :?>
+                                    <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                <?php endif ;?>
+                                <?=$calendarLine['exterieur']?>
+                                <?php if($calendarLine['exterieur'] =="FC BAYER LEVERKUSEC") :?>
+                                    <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                <?php endif ;?>
+                            </td>
+                            <?php else : ?>
+                            <td class="resultat_exterieur">
+                                <?=$calendarLine['resultat_exterieur']?>
+                            </td>
+                            <td class="exterieur">
+                                <?php if($calendarLine['exterieur'] =="FC BAYER LEVERKUSEC") :?>
+                                    <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                <?php endif ;?>
+                                <?=$calendarLine['exterieur']?>
+                                <?php if($calendarLine['exterieur'] =="FC BAYER LEVERKUSEC") :?>
+                                    <img class="icone-logo" src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec" alt="">
+                                <?php endif ;?>
+                            </td>
+                            <?php endif ; ?>
+
+
+                            <?php if(!$calendarLine['resultat_exterieur'] && !$calendarLine['resultat_domicile'] && $calendarLine['exterieur'] != "EXEMPT" && $calendarLine['domicile'] != "EXEMPT") :?>
+                            <td class="lieu"><?=$calendarLine['lieu']?></td>
+                            <?php endif ;?>
+                        </tr>
+                <?php if(($j-1) % $matchPerDay == 0) : ?>
+                    </tbody>
+                </table>
+                <?php endif ;?>
+                <?php $i++;?>
+            <?php endforeach;?>
+        </div>
+        <table class="table-ranking-admin">
+            <thead>
+                <tr>
+                    <td>Classement</td>
+                    <td>Equipe</td>
+                    <td>Pts</td>
+                    <td>J</td>
+                    <td>G</td>
+                    <td>N</td>
+                    <td>P</td>
+                    <td>Butpour</td>
+                    <td>Butcontre</td>
+                    <td>Diff</td>
+                </tr>
+            </thead>
+            <tbody>
+        <?php $i= 1;?>
+        <?php foreach ($championshipLines as $championshipLine): ?>
+            <tr data-id="<?=$i?>">
+                <td class="classement"><?= $i ;?></td>
+                <td class="name"><?= $championshipLine['name']?></td>
+                <td class="pts"><?= $championshipLine['pts']?></td>
+                <td class="J"><?= $championshipLine['J']?></td>
+                <td class="G"><?= $championshipLine['G']?></td>
+                <td class="N"><?= $championshipLine['N']?></td>
+                <td class="P"><?= $championshipLine['P']?></td>
+                <td class="Butpour"><?= $championshipLine['Butpour']?></td>
+                <td class="Butcontre"><?= $championshipLine['Butcontre']?></td>
+                <td class="Diff"><?= $championshipLine['Diff']?></td>
+            </tr>
+        <?php $i++; ?>
+        <?php endforeach; ?>
+            </tbody>
+        </table>
+<?php endif; ?>

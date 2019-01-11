@@ -1,0 +1,308 @@
+// this file gets compiled
+@import 'default';
+
+/*****************************HOMEPAGE****************************/
+/*
+.slider {
+    width :60%;
+}*/
+
+.flexslider{
+    .slides{
+        li{
+            position: relative;
+            p{
+                text-align: center;
+                position: absolute;
+                top: 0.5rem;
+                font-size: 3rem;
+                left: 40%;
+                transform: translate(-33%, -50%);
+                color: $color4;
+                text-shadow: 0.01rem 0.01rem 0.01rem white;
+            }
+        }
+    }
+}
+
+.main-homepage * {
+//border : 1px solid black;
+}
+
+.main-homepage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.block-left {
+	width: 70%;
+}
+.block-right {
+    width :25%;
+}
+
+.news {
+	display:flex;
+	flex-wrap: wrap;
+	.actuality {
+        //width :48%;
+        margin: auto;
+        margin-bottom: 1%;
+        padding: 0.5rem;
+        .block-post {
+            padding: 1rem;
+        }
+	}
+}
+
+.aside-homepage {
+	//width: 20%;
+	margin:0;
+}
+
+.flash {
+	display: flex;
+	flex-wrap: wrap;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    p {
+        padding:0.5rem;
+        margin: 0;
+    }
+    p:nth-child(1){
+		width:40%;
+	}
+	p:nth-child(2){
+		width:60%;
+	}
+}
+
+.aside-homepage > .flash:nth-child(odd){
+	background-color: $color3;
+	color:$color1;
+}
+
+.aside-homepage > .flash:nth-child(even){
+	background-color: $color2;
+	color:$color1;
+}
+
+/*****************************CLUB******************************/
+
+.club-section{
+    h2 {
+        color: $color4;
+    }
+    .background-club {
+        height: 50rem;
+        //background-image: url('../images/site/background-logo.png');
+        //opacity:0.5;
+        background-size: 30rem 30rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        //background-position: top 10rem;
+        .block {
+            width: 60%;
+            padding: 2rem;
+            margin: 2rem auto;
+            background-color: rgba(44, 68, 124,0.2);
+            p {
+                width:75%;
+                padding: 1rem;
+                margin: 2rem auto;
+                background-color: rgba(255, 255, 255,0.4);
+                border:0.2rem solid $color4;
+                border-radius: 2rem;
+                font-size: 2rem;
+                color :$color4;
+                text-shadow: 0.02rem 0.02rem 0.02rem $color4;
+
+            }
+        //    border-radius: 4rem;
+        }
+
+    }
+}
+
+/*****************************TEAM******************************/
+
+.team-block *{
+    //border: 1px solid black;
+}
+.team-section {
+    text-align: center;
+
+    .team-block{
+
+        display: flex;
+        flex-wrap: wrap;
+        .tab-team{
+            width :80%;
+            margin: auto;
+
+        }
+        .photo-team {
+            width :80%;
+            margin: auto;
+            padding-top: 2rem;
+            img {
+                width: 80rem;
+                border: 2rem groove $color1;
+            }
+        }
+    }
+}
+
+
+.table-calendar-championship {
+    margin-bottom:  2rem;
+    //width:80%;
+    caption {
+        padding :1rem;
+        font-weight: bold;
+		font-size: 1.7rem;
+		text-align: center;
+		//background-color: $color1;
+		color :$color4;
+    }
+    thead {
+        background-color: white;
+        td {
+            border: none;
+
+        }
+    }
+    tbody{
+        td:nth-child(1),
+        td:nth-child(2){
+            width :6rem;
+        }
+        td:nth-child(4),
+        td:nth-child(5){
+            width :4rem;
+            }
+
+        td:nth-child(3),
+        td:nth-child(6){
+            width :33rem;
+        }
+        td:nth-child(7){ 
+            width :30rem;
+
+        }
+        // td:nth-child(8){
+        //
+        //     //display: flex;
+    	// 	background-color: white;
+    	// 	border: none;
+        //     padding: 0;
+    	// 	font-weight: bold;
+    	// }
+
+    }
+}
+
+
+/**************************************************************/
+/*****************************ADMIN****************************/
+/**************************************************************/
+
+
+
+/*****************************POST-ADMIN******************************/
+.table-post-admin{
+	margin-top: 3rem;
+    td:nth-child(4){
+		background-color: white;
+		border: none;
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	.edit-post{
+		padding: 1rem;
+		color:green;
+	}
+	.delete-post{
+		padding: 1rem;
+
+		color:red;
+	}
+}
+
+/*****************************TEAM-ADMIN******************************/
+.team-admin {
+    display: flex;
+    flex-wrap: wrap;
+    .fieldset-team-admin {
+        width:40%;
+        margin: auto;
+        label {
+            width:30%;
+        }
+    }
+    .table-team-admin{
+
+        margin-top: 3rem;
+        td:nth-child(6){
+            display: flex;
+    		background-color: white;
+    		border: none;
+    		font-size: 1.5rem;
+    		font-weight: bold;
+    	}
+    	.edit-player{
+    		padding: 1rem;
+    		color:green;
+    	}
+    	.delete-player{
+    		padding: 1rem;
+
+    		color:red;
+    	}
+    }
+}
+
+/*****************************COMPETITION-ADMIN******************************/
+
+.table-calendar-admin {
+    margin-bottom:  2rem;
+    width:100%;
+    caption {
+        padding :1rem;
+        font-weight: bold;
+		font-size: 1.7rem;
+		text-align: center;
+		//background-color: $color1;
+		color :$color4;
+    }
+    thead {
+        background-color: white;
+        td {
+            border: none;
+
+        }
+    }
+    tbody{
+        td:nth-child(8){
+
+            //display: flex;
+    		background-color: white;
+    		border: none;
+            padding: 0;
+    		font-weight: bold;
+    	}
+    	.edit-calendarline{
+            font-size: 1.5rem;
+    		padding: 0.5rem;
+    		color:green;
+    	}
+        .validate-calendarline{
+            font-size: 1.5rem;
+    		padding: 0.5rem;
+    		color:green;
+    	}
+    }
+
+
+}

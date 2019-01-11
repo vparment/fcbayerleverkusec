@@ -1,0 +1,266 @@
+
+/************************VARIABLE*****************************/
+$color1 : rgb(240, 242, 243); ////GRIS BLANC////
+
+
+$color2 : rgb(139, 157, 187); ////GRIS BLEU////
+$color2a : rgba(139, 157, 187,0.5); ////GRIS BLEU////
+
+$color3 : rgb(234, 162, 31); ////JAUNE MOUTARDE////
+$color4 : rgb(44, 68, 124); ////BLEU FONCE////
+
+
+/************************DEFAULT*********************/
+
+* {
+	box-sizing:border-box;
+	//border :0.05rem solid black;
+}
+
+body {
+	margin:0;
+	font-family: sans-serif;
+	font-size: 1.5rem;
+}
+
+.container {
+	max-width: 110rem;
+	width:100%;
+	margin: auto;
+}
+
+.clearfix::after {
+	content : "";
+	display : block;
+	clear : both;
+}
+
+html {
+	font-size:62.5%;
+	//background-color: grey;
+}
+
+/************************ELEMENTS*********************/
+
+h1{
+	text-shadow: 0.1rem 0.1rem 0.1rem $color4;
+	color:$color4;
+	padding:2rem 0 0rem 0;
+	margin:0;
+	font-size: 4rem;
+	i {
+		padding: 0rem 2rem;
+	}
+}
+
+h2 {
+	margin:0;
+	padding-bottom: 1rem;
+	width: 100%;
+	text-align: center;
+	color:$color2;
+	text-shadow: 0.01rem 0.01rem 0.01rem $color4;
+}
+
+h3 {
+	margin-top:0;
+}
+
+
+table {
+	margin: auto;
+	text-align: center;
+	box-shadow: 0rem 0rem 0.5rem 0.1rem $color2;
+    background-color: $color4;
+	td {
+		border :0.1rem solid $color4;
+		padding :0.5rem;
+	}
+	thead {
+		font-weight: bold;
+		font-size: 1.7rem;
+		text-align: center;
+		background-color: $color1;
+		color :$color4;
+	}
+	tbody {
+		tr:nth-child(even){
+			background-color: $color2 ;
+			color:white;
+		}
+		tr:nth-child(odd){
+			background-color: white ;
+			color:$color4;
+		}
+	}
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+main {
+	padding :0rem 2rem;
+}
+
+fieldset {
+	margin: auto;
+	padding: 2rem;
+	border: 0.2rem solid $color4;
+	box-shadow: 0rem 0rem 0.5rem 0.1rem $color2;
+	legend {
+		padding: 1rem;
+		font-size :1.8rem;
+		color :$color4;
+		background-color: white;
+	}
+	.field {
+		padding :1rem;
+		label {
+			color : $color3;
+			display: inline-block;
+			width: 20%;
+		}
+		input{
+			padding: 1rem;
+			border-radius: 25rem;
+			border: 0.1 solid black;
+			box-shadow: 0rem 0rem 0.3rem 0.1rem $color2;
+		}
+		textarea {
+			border-radius: 1rem;
+			padding: 1rem;
+
+			border: 0.1 solid black;
+			box-shadow: 0rem 0rem 0.3rem 0.1rem $color2;
+
+		}
+		select {
+			border-radius: 1rem;
+			border: 0.1 solid black;
+			box-shadow: 0rem 0rem 0.3rem 0.1rem $color2;
+
+		}
+	}
+	.div-button{
+
+		input,
+		button {
+			border-radius: 1rem;
+			padding: 1rem;
+			background-color: $color1;
+			color :$color4;
+			box-shadow: 0rem 0rem 0.3rem 0.1rem $color2;
+
+
+		}
+
+	}
+}
+
+
+
+
+/************************CLASS*********************/
+
+.nav-button {
+	ul {
+		display: flex;
+		justify-content: space-around;
+        padding:1rem;
+        a {
+            border-radius: 4rem;
+			padding: 1rem;
+			background-color: $color1;
+			color :$color4;
+			box-shadow: 0.3rem 0.3rem 0.3rem 0 $color2;
+        }
+	}
+}
+
+.block {
+	border: 0.2rem solid $color4;
+	border-top-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	background-color:$color2a;
+	box-shadow: 0rem 0rem 0.5rem 0.1rem $color2;
+}
+
+.fa-beer{
+	color:$color3;
+	text-shadow: 0.1rem 0.1rem 0.1rem $color4;
+}
+
+.area {
+	label {
+		vertical-align: top;
+	}
+}
+
+
+.input {
+	padding: 0.5rem;
+	label{
+		display: inline-block;
+		width:10%;
+	}
+}
+
+.icone-logo {
+    height:2rem;
+    vertical-align: middle;
+}
+
+.background-yellow {
+    background-color: $color3;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+/************************HEADER*****************************/
+
+header { 
+	text-align: center;
+	img {
+		height:5rem;
+	}
+	.line-shadow {
+		height:0.5rem;
+		box-shadow: 0px 5px 5px 0px $color2;
+	}
+	.menu-nav{
+		padding-top: 2rem;
+		ul {
+			clip-path: polygon(4% 0%, 96% 0%, 100% 100%,  0% 100%);
+			//box-shadow: 0.5rem 0.5rem 0.5rem 0 $color2;
+			display:flex;
+			justify-content: space-around;
+			padding:2rem;
+			background-color : $color4;
+			a {
+				color :$color1;
+				font-weight: bold;
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+
+/*****************************FOOTER******************************/
+
+footer{
+	text-align: center;
+	.menu-footer {
+		ul {
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+}

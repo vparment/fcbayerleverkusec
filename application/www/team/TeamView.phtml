@@ -1,0 +1,35 @@
+<section class=" team-section">
+    <h2>EQUIPE FC BAYER LEVERKUSEC</h2>
+    <div class="team-block">
+        <article class="tab-team">
+        <?php if(isset($players)) :?>
+            <table class="table table-team-page">
+            <thead>
+                <tr>
+                    <td>Position</td>
+                    <td>Numéro</td>
+                    <td>Nom</td>
+                    <td>Alias</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($players as $player): ?>
+                    <tr>
+                        <td><?=$player['position']?></td>
+                        <td><?=$player['number']?></td>
+                        <td><?=$player['name']?></td>
+                        <td><?=$player['pseudo']?></td>
+                        <td><?=$player['description']?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+            </table>
+        <?php endif;?>
+    </article>
+    <aside class="photo-team">
+        <img src="<?= $wwwUrl ?>/images/site/team.jpg" alt="photo équipe bayer leverkusec">
+
+    </aside>
+    </div>
+</section>

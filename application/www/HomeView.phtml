@@ -1,0 +1,52 @@
+<div class="main-homepage">
+    <div class="block-left">
+        <section class="slider">
+            <h2>Actualités</h2>
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="<?= $wwwUrl ?>/images/site/team.jpg" />
+                        <p class="legend">L'équipe presque au complet</p>
+
+                    </li>
+                    <li>
+                        <!-- <p>La tenue 2018/2019</p> -->
+                        <img src="<?= $wwwUrl ?>/images/site/tenue.png" />
+                        <p class="legend">Equipement 2018/2019</p>
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="section-homepage">
+            <h2>Articles</h2>
+            <div class="news">
+            <?php if(isset($posts)) :?>
+                <?php foreach ($posts as $post) :?>
+                <div class="actuality">
+                    <article class="block block-post">
+                        <h3 class="title-post"><i class="fas fa-beer">  </i><?="  ".$post['title']?></h3>
+                        <p class="content-post"><?=$post['content']?></p>
+                        <p class="date-post"><?=$post['date']?></p>
+                    </article>
+                </div>
+                <?php endforeach ;?>
+            <?php endif;?>
+            </div>
+        </section>
+    </div>
+    <div class="block-right">
+        <aside class="container aside-homepage">
+            <h2>Flash infos</h2>
+            <?php if(isset($limitPosts)) :?>
+                <?php foreach ($limitPosts as $post) :?>
+                    <article class="block flash">
+                        <p class="content-post"><?=$post['date']?></p>
+                        <p class="date-post"><?=$post['description']?></p>
+                    </article>
+                <?php endforeach;?>
+            <?php endif;?>
+        </aside>
+
+    </div>
+</div>

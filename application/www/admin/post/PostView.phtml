@@ -1,0 +1,54 @@
+<nav class="nav-button">
+    <ul>
+        <li><a href="<?= $requestUrl ?>/admin/post">Gérer les articles</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/team">Gérer l'équipe</a></li>
+        <li><a href="<?= $requestUrl ?>/admin/competition">Gérer les compétitions</a></li>
+    </ul>
+</nav>
+<section class="articles-admin container">
+    <?php if(isset($posts)):?>
+        <h2>Gérer les articles</h2>
+        <fieldset class="fieldset-post-admin">
+            <legend>Ajouter un article</legend>
+            <form action="<?= $requestUrl ?>/admin/post?action=insert-post" method="post">
+                <div class="field">
+                    <label for="title">Titre : </label>
+                    <input type="text" name="title" value="" maxlength="30" required>
+                </div>
+                <div class="field area">
+                    <label for="content">Contenu :</label>
+                    <textarea name="content" rows="8" cols="80" required></textarea>
+                </div>
+                <div class="field">
+                    <label for="description">Description (40 caractères max) : </label>
+                    <input type="text" name="description" value="" maxlength="40" required>
+                </div>
+                <div class="div-button">
+                    <input type="submit" name="button_insert" value="Ajouter un article">
+                </div>
+            </form>
+        </fieldset>
+        <table class="table table-post-admin">
+        <thead>
+            <tr>
+                <td>Titre</td>
+                <td>Contenu</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($posts as $post): ?>
+                <tr>
+                    <td><?=$post['title']?></td>
+                    <td><?=$post['content']?></td>
+                    <td><?=$post['description']?></td>
+                    <td class="cell-button">
+                        <div class="edit-post" data-id="<?=$post['post_id']?>"><i class="fas fa-pen"></i></div>
+                        <div class="delete-post" data-id="<?=$post['post_id']?>"><i class="fas fa-trash-alt"></i></div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+        </table>
+    <?php endif;?>
+</section>
