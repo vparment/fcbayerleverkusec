@@ -43,14 +43,16 @@ html {
 /************************ELEMENTS*********************/
 
 h1{
-	text-shadow: 0.1rem 0.1rem 0.1rem $color4;
-	color:$color4;
-	padding:2rem 0 0rem 0;
-	margin:0;
-	font-size: 4rem;
-	i {
-		padding: 0rem 2rem;
-	}
+	// color:$color3;
+	// text-shadow: 0.1rem 0.1rem 0.1rem $color4;
+	// text-shadow: 0.1rem 0.1rem 0.1rem $color4;
+	// color:$color4;
+	// padding:2rem 0 0rem 0;
+	// margin:0;
+	// font-size: 4rem;
+	// i {
+	// 	padding: 0rem 2rem;
+	// }
 }
 
 h2 {
@@ -225,32 +227,134 @@ fieldset {
 
 /************************HEADER*****************************/
 
-header { 
-	text-align: center;
-	img {
-		height:5rem;
+
+
+
+header {
+	display: grid;
+	grid-template-rows: repeat(6,3rem);
+	grid-template-columns: 1fr 18rem 92rem 1fr;
+	border:1px solid black;
+	//background-color: $color4;
+//	background-color: grey;
+	// .connect {
+	// 	background-color :white;
+	// }
+	h1 {
+		order:1;
+		//grid-row: 2 /span 2;
+		grid-column: 3 /span 1;
+		color:$color3;
+		text-shadow: 0.1rem 0.1rem 0.1rem $color4;
+		font-size: 4rem;
 	}
-	.line-shadow {
-		height:0.5rem;
-		box-shadow: 0px 5px 5px 0px $color2;
+	.logo {
+		order:1;
+		padding-top: 1rem;
+		//border :2px solid pink;
+		grid-row: 1 /span 3;
+		grid-column: 2 /span 1;
+
+		height:13rem;
+
 	}
-	.menu-nav{
-		padding-top: 2rem;
-		ul {
-			clip-path: polygon(4% 0%, 96% 0%, 100% 100%,  0% 100%);
-			//box-shadow: 0.5rem 0.5rem 0.5rem 0 $color2;
-			display:flex;
-			justify-content: space-around;
-			padding:2rem;
-			background-color : $color4;
-			a {
-				color :$color1;
-				font-weight: bold;
-				font-size: 1.6rem;
+	.background-nav {
+		background-color : $color4;
+		grid-row: 4 /span 3;
+		grid-column: 1 /span 4;
+		box-shadow: 0px 0px 8px 0px black;
+		display :grid;
+		grid-template-columns: 1fr 15rem 95rem 1fr;
+		// position :absolute;
+		// z-index :1000;
+		.menu-nav{
+		//	padding-top: 2rem;
+
+			grid-column: 3 / span 1;
+			grid-row: 4/ span 3;
+			ul {
+			//	clip-path: polygon(4% 0%, 96% 0%, 100% 100%,  0% 100%);
+				//box-shadow: 0.5rem 0.5rem 0.5rem 0 $color2;
+				display:flex;
+				justify-content: space-around;
+				margin :0;
+				padding: 2rem 0;
+
+				a {
+					color :$color1;
+					font-weight: bold;
+					font-size: 1.6rem;
+				}
 			}
 		}
 	}
+
+	.sticky {
+		position:fixed;
+		top :0;
+		width :100%;
+
+		//height:20rem;
+		//color:black;
+	}
+	.sticky-logo {
+		position:fixed;
+		top :0;
+		z-index: 5;
+		height:5rem;
+		grid-row: 1 /span 3;
+		grid-column: 2 /span 1;
+		//width :100%;
+
+		//height:20rem;
+		//color:black;
+	}
 }
+
+.top-line-shadow {
+		height:0.5rem;
+		background-color: $color4;
+		box-shadow: 0px -3px 5px 0px grey;
+		grid-column: 1 / span 4;
+		grid-row: 4/ span 3;
+	}
+
+	.bottom-line-shadow {
+			height:0.5rem;
+			background-color: $color4;
+			box-shadow: 0px 5px 5px 0px grey;
+			grid-column: 1 / span 4;
+			grid-row: 7/ span 3;
+		}
+
+
+//
+// header {
+// 	text-align: center;
+// 	img {
+// 		height:5rem;
+// 	}
+// 	.line-shadow {
+// 		height:0.5rem;
+// 		box-shadow: 0px 5px 5px 0px $color2;
+// 	}
+// 	.menu-nav{
+// 		padding-top: 2rem;
+// 		ul {
+// 			clip-path: polygon(4% 0%, 96% 0%, 100% 100%,  0% 100%);
+// 			//box-shadow: 0.5rem 0.5rem 0.5rem 0 $color2;
+// 			display:flex;
+// 			justify-content: space-around;
+// 			padding:2rem;
+// 			background-color : $color4;
+// 			a {
+// 				color :$color1;
+// 				font-weight: bold;
+// 				font-size: 1.6rem;
+// 			}
+// 		}
+// 	}
+// }
 
 
 /*****************************FOOTER******************************/
