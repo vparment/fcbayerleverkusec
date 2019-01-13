@@ -102,7 +102,7 @@ ul {
 }
 
 a {
-	text-decoration: none;
+	//text-decoration: none;
 }
 
 main {
@@ -227,38 +227,40 @@ fieldset {
 
 /************************HEADER*****************************/
 
-
-
-
 header {
 	.header-top {
 		display: grid;
 		grid-template-rows: repeat(3,3rem);
 		grid-template-columns: 1fr 18rem 92rem 1fr;
-		h1 {
-
+		.h1 {
 			grid-column: 3 /span 1;
+			//grid-column: 2 /span 1;
+			text-decoration: none;
+			h1 {
 			color:$color3;
 			text-shadow: 0.1rem 0.1rem 0.1rem $color4;
 			font-size: 4rem;
+
+			}
 		}
 		.top-header-logo {
 			z-index: 1000;
-			padding-top: 1rem;
+			padding-top: 0.7rem;
 			grid-row: 1 /span 1;
 			grid-column: 2 /span 1;
-			height:13rem;
+			img {height:11rem;
+			}
 		}
 	}
-
-	.header-bottom {
+	.header-bottom { 
+		//transition: height 2.3s cubic-bezier(.215,.61,.355,1);
 		display: grid;
 		grid-template-rows: repeat(5,2rem);
-		grid-template-columns: 1fr 12rem  6rem 92rem 1fr;
+		grid-template-columns: 1fr 5rem  8rem 92rem 5rem 1fr;
 		z-index: 100;
 		.background-nav {
 			grid-row: 1 /span 5;
-			grid-column: 1 /span 5;
+			grid-column: 1 /span 6;
 			box-shadow: 0px 0px 8px 0px black;
 			background-color : $color4;
 		}
@@ -269,24 +271,35 @@ header {
 			ul {
 				display:flex;
 				justify-content: space-around;
-				margin :0; 
+				margin :0;
 				padding: 0;
 				.li-logo {
-					.bottom-header-logo {
+					img{
 						height :4rem;
 					}
 				}
 				li{
+				//	text-align: center;
 					align-self: center;
+					.hide {
+						padding:  0.3rem;
+						opacity :0;
+					}
 					a {
-						padding: 3rem 1rem;
+						padding: 3rem 0.5rem;
 						color :$color1;
 						font-weight: bold;
 						font-size: 1.6rem;
+						text-decoration: none;
 					}
-					a>* {
-						padding: 0 1rem;
-					}
+				}
+				li:hover .hide{
+					opacity :1;
+				}
+				li:hover a {
+					padding-bottom: 0.3rem;
+					text-decoration: underline;
+					text-decoration-color: $color3;
 				}
 			}
 		}
@@ -297,6 +310,7 @@ header {
 	position:fixed;
 	top :0;
 	width :100%;
+//	transition: height 2.3s cubic-bezier(.215,.61,.355,1);
 }
 
 .headerIsSticky + main {

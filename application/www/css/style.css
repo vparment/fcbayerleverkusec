@@ -57,9 +57,6 @@ table {
 ul {
   list-style: none; }
 
-a {
-  text-decoration: none; }
-
 main {
   padding: 0rem 2rem; }
 
@@ -148,25 +145,28 @@ header .header-top {
   display: grid;
   grid-template-rows: repeat(3, 3rem);
   grid-template-columns: 1fr 18rem 92rem 1fr; }
-  header .header-top h1 {
+  header .header-top .h1 {
     grid-column: 3 /span 1;
-    color: #eaa21f;
-    text-shadow: 0.1rem 0.1rem 0.1rem #2c447c;
-    font-size: 4rem; }
+    text-decoration: none; }
+    header .header-top .h1 h1 {
+      color: #eaa21f;
+      text-shadow: 0.1rem 0.1rem 0.1rem #2c447c;
+      font-size: 4rem; }
   header .header-top .top-header-logo {
     z-index: 1000;
-    padding-top: 1rem;
+    padding-top: 0.7rem;
     grid-row: 1 /span 1;
-    grid-column: 2 /span 1;
-    height: 13rem; }
+    grid-column: 2 /span 1; }
+    header .header-top .top-header-logo img {
+      height: 11rem; }
 header .header-bottom {
   display: grid;
   grid-template-rows: repeat(5, 2rem);
-  grid-template-columns: 1fr 12rem  6rem 92rem 1fr;
+  grid-template-columns: 1fr 5rem  8rem 92rem 5rem 1fr;
   z-index: 100; }
   header .header-bottom .background-nav {
     grid-row: 1 /span 5;
-    grid-column: 1 /span 5;
+    grid-column: 1 /span 6;
     box-shadow: 0px 0px 8px 0px black;
     background-color: #2c447c; }
   header .header-bottom .menu-nav {
@@ -178,17 +178,25 @@ header .header-bottom {
       justify-content: space-around;
       margin: 0;
       padding: 0; }
-      header .header-bottom .menu-nav ul .li-logo .bottom-header-logo {
+      header .header-bottom .menu-nav ul .li-logo img {
         height: 4rem; }
       header .header-bottom .menu-nav ul li {
         align-self: center; }
+        header .header-bottom .menu-nav ul li .hide {
+          padding: 0.3rem;
+          opacity: 0; }
         header .header-bottom .menu-nav ul li a {
-          padding: 3rem 1rem;
+          padding: 3rem 0.5rem;
           color: #f0f2f3;
           font-weight: bold;
-          font-size: 1.6rem; }
-        header .header-bottom .menu-nav ul li a > * {
-          padding: 0 1rem; }
+          font-size: 1.6rem;
+          text-decoration: none; }
+      header .header-bottom .menu-nav ul li:hover .hide {
+        opacity: 1; }
+      header .header-bottom .menu-nav ul li:hover a {
+        padding-bottom: 0.3rem;
+        text-decoration: underline;
+        text-decoration-color: #eaa21f; }
 
 .sticky {
   position: fixed;
@@ -349,7 +357,7 @@ footer {
 /**************************************************************/
 /*****************************ADMIN****************************/
 /**************************************************************/
-/*****************************POST-ADMIN******************************/
+/*****************************POST-ADMIN*** ***************************/
 .table-post-admin {
   margin-top: 3rem; }
   .table-post-admin td:nth-child(4) {

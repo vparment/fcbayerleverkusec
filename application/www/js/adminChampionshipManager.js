@@ -17,7 +17,7 @@ class adminChampionshipManager {
             input.attr("placeholder","Nom Equipe "+(i+1)).attr("name",(i)).attr("data-id",(i+1)).attr("required","required").attr("value","equipe"+(i+1));
             div_field.append(label).append(input);
             i++;
-        }
+        } 
     }
     OnGiveNumberOfTeams(event){
         //console.log(event);

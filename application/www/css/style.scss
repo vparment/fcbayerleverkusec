@@ -99,7 +99,7 @@
         //background-image: url('../images/site/background-logo.png');
         //opacity:0.5;
         background-size: 30rem 30rem;
-        background-repeat: no-repeat;
+        background-repeat: no-repeat; 
         background-position: center;
         //background-position:  top 10rem;
         .block {
@@ -210,7 +210,7 @@
 
 
 
-/*****************************POST-ADMIN******************************/
+/*****************************POST-ADMIN*** ***************************/
 .table-post-admin{
 	margin-top: 3rem;
     td:nth-child(4){
@@ -248,7 +248,7 @@
             display: flex;
     		background-color: white;
     		border: none;
-    		font-size: 1.5rem; 
+    		font-size: 1.5rem;
     		font-weight: bold;
     	}
     	.edit-player{
