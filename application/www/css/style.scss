@@ -83,7 +83,7 @@
 	color:$color1;
 }
 
-.aside-homepage > .flash:nth-child(even){
+.aside-homepage > .flash:nth-child(even ){
 	background-color: $color2;
 	color:$color1;
 }
@@ -101,19 +101,19 @@
         background-size: 30rem 30rem;
         background-repeat: no-repeat;
         background-position: center;
-        //background-position: top 10rem;
+        //background-position:  top 10rem;
         .block {
             width: 60%;
             padding: 2rem;
             margin: 2rem auto;
-            background-color: rgba(44, 68, 124,0.2);
+            background-color: rgba(44, 68,  124,0.2);
             p {
                 width:75%;
                 padding: 1rem;
                 margin: 2rem auto;
                 background-color: rgba(255, 255, 255,0.4);
                 border:0.2rem solid $color4;
-                border-radius: 2rem; 
+                border-radius: 2rem;
                 font-size: 2rem;
                 color :$color4;
                 text-shadow: 0.02rem 0.02rem 0.02rem $color4;
@@ -248,7 +248,7 @@
             display: flex;
     		background-color: white;
     		border: none;
-    		font-size: 1.5rem;
+    		font-size: 1.5rem; 
     		font-weight: bold;
     	}
     	.edit-player{

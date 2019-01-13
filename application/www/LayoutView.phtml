@@ -24,19 +24,14 @@
 <body>
 <!-- En-tête commune -->
 <header>
-    <!-- <div class="">
-
-    </div> -->
-    <img class="logo" src="<?= $wwwUrl ?>/images/site/logo-nav.png" alt="logo Bayer leverkusec">
-    <h1>FC BAYER LEVERKUSEC</h1>
-    <!-- <div class="top-line-shadow"></div> -->
-    <div class="background-nav">
-    <!-- <div class="bottom-line-shadow"></div> -->
+    <div class="header-top">
+        <img class="top-header-logo" src="<?= $wwwUrl ?>/images/site/logo-nav.png" alt="logo Bayer leverkusec">
+        <h1>FC BAYER LEVERKUSEC</h1>
+    </div>
+    <div class="header-bottom">
+        <div class="background-nav"></div>
         <nav class="menu-nav">
             <ul>
-                <li>
-                    <a href="<?= $requestUrl ?>">ACCUEIL</a>
-                </li>
                 <li>
                     <a href="<?= $requestUrl ?>/club">LE CLUB</a>
                 </li>
@@ -55,55 +50,13 @@
             </ul>
         </nav>
     </div>
-
-
-    <!-- <div class="connect container">
-        <form class="" action="index.html" method="post">
-            <input type="text" name="" value="" placeholder="Pseudo">
-            <input type="password" name="" value="" placeholder="Mot de passe">
-            <input type="submit" name="" value="connexion">
-        </form>
-    </div>
-
-    <div class="container">
-
-    <div class="title">
-
-
-    </div>
-
-    <div class="line-shadow">
-    </div>
-    <nav class="menu-nav">
-        <ul class="container">
-            <li>
-                <a href="<?= $requestUrl ?>">ACCUEIL</a>
-            </li>
-            <li>
-                <a href="<?= $requestUrl ?>/club">LE CLUB</a>
-            </li>
-            <li>
-                <a href="<?= $requestUrl ?>/team">L'EQUIPE</a>
-            </li>
-            <li>
-                <a href="<?= $requestUrl ?>/competition">CALENDRIERS / CLASSEMENTS</a>
-            </li>
-            <li>
-                <a href="<?= $requestUrl ?>/contact">CONTACT</a>
-            </li>
-            <li>
-                <a href="<?= $requestUrl ?>/admin"><i class="fas fa-cogs"></i>  Administrateur</a>
-            </li>
-        </ul>
-    </nav>
-    </div> -->
 </header>
 <!-- Interface utilisateur -->
-<nav class="user-interface">
+<!-- <nav class="user-interface">
     <ul class="link-list">
-        <!-- Code HTML/PHP à écrire -->
+         Code HTML/PHP à écrire
     </ul>
-</nav>
+</nav> -->
 
 <main class="container">
     <!-- Affichage du template lié à la vue -->
@@ -122,7 +75,7 @@
 </footer>
 
 <!-- Code principal JavaScript de l'application -->
-    <script type="text/javascript" src="<?= $wwwUrl ?>/js/sticky.js"></script>
+    <script type="text/javascript" src="<?= $wwwUrl ?>/js/header.js"></script>
     <script type="text/javascript" src="<?= $wwwUrl ?>/js/adminChampionshipManager.js"></script>
     <script type="text/javascript" src="<?= $wwwUrl ?>/js/adminPostManager.js"></script>
     <script type="text/javascript" src="<?= $wwwUrl ?>/js/adminTeamManager.js"></script>
