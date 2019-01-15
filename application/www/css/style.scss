@@ -1,4 +1,4 @@
-// this file gets compiled
+// compileCompressed: style.css
 @import 'default';
 
 /*****************************HOMEPAGE****************************/
@@ -6,6 +6,7 @@
 .slider {
     width :60%;
 }*/
+
 
 .flexslider{
     .slides{
@@ -99,7 +100,7 @@
         //background-image: url('../images/site/background-logo.png');
         //opacity:0.5;
         background-size: 30rem 30rem;
-        background-repeat: no-repeat; 
+        background-repeat: no-repeat;
         background-position: center;
         //background-position:  top 10rem;
         .block {

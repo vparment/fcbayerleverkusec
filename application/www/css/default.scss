@@ -14,13 +14,13 @@ $color4 : rgb(44, 68, 124); ////BLEU FONCE////
 
 * {
 	box-sizing:border-box;
-	//border :0.05rem solid black;
 }
 
 body {
 	margin:0;
 	font-family: sans-serif;
 	font-size: 1.5rem;
+	border :1px solid black;
 }
 
 .container {
@@ -252,7 +252,7 @@ header {
 			}
 		}
 	}
-	.header-bottom { 
+	.header-bottom {
 		//transition: height 2.3s cubic-bezier(.215,.61,.355,1);
 		display: grid;
 		grid-template-rows: repeat(5,2rem);
