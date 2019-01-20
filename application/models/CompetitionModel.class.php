@@ -4,7 +4,6 @@ class CompetitionModel{
 
     function selectCompetitionsByCompetitionCode($competition_code){
         $database = new Database();
-
         $competitionsList = $database->query("
             SELECT  *
             FROM competition_list
@@ -25,7 +24,6 @@ class CompetitionModel{
     }
     function insertCompetitionList($name,$nb_team,$competition_code){
         $database = new Database();
-
         $lastCompetitionId = $database->executeSql("
             INSERT INTO competition_list (name, date, nb_team, competition_code)
             VALUES (?,NOW(),?,?)

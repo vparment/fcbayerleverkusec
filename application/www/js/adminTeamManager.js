@@ -3,23 +3,21 @@ class adminTeamManager {
             $(".delete-player").on("click",(event)=>this.OnDeletePlayerClick(event));
 
             $(".edit-player").on("click",(event)=>this.OnEditPlayerClick(event));
-
         }
+// On delete player
         OnDeletePlayerClick(event){
             var player_id = $(event.currentTarget).data('id');
-            //$.getJSON('search_post.php?word='+beginning_title_post,GetListPost);
             $.getJSON(getRequestUrl() + '/admin/team?action=delete-player&player_id='+player_id,this.getNewTablePlayers.bind(this)) ;
-            //$.getJSON('admin.php?action=delete-post&id='+post_id,(reponseAjax)=>this.getNewTablePosts(reponseAjax)) ;
         }
-        OnEditPlayerClick(event){
-            var player_id = $(event.currentTarget).data('id');
+        getNewTablePlayers(newListPlayers){
+            $('.table-team-admin tbody').empty();
 
-            $.getJSON(getRequestUrl() + '/admin/team?action=edit-player&player_id='+player_id,this.getNewFormPlayer.bind(this));
-            //$.getJSON('admin.php?action=delete-post&id='+post_id,(reponseAjax)=>this.getNewTablePosts(reponseAjax)) ;
+            for (var player of newListPlayers){
+                this.getLineListPlayers(player);
+            }
         }
         getLineListPlayers(player){
             var tr_player = $('<tr>');
-
             var td_position = $('<td>');
             var td_number = $('<td>');
             var td_name = $('<td>');
@@ -43,7 +41,6 @@ class adminTeamManager {
             $(".delete-player").on("click",(event)=>this.OnDeletePlayerClick(event));
             $(".edit-player").on("click",(event)=>this.OnEditPlayerClick(event));
 
-            //console.log(player);
             i_edit.attr("class","fas fa-pen");
             i_delete.attr("class","fas fa-trash-alt");
 
@@ -54,13 +51,17 @@ class adminTeamManager {
             td_description.text(player.description);
 
         }
+// On edit player
+        OnEditPlayerClick(event){
+            var player_id = $(event.currentTarget).data('id');
+            $.getJSON(getRequestUrl() + '/admin/team?action=edit-player&player_id='+player_id,this.getNewFormPlayer.bind(this));
+        }
         getNewFormPlayer(player){
-            $('.div-button').empty();
-        //    console.log(player);
-            $('.fieldset-team-admin form').attr("action",getRequestUrl() + '/admin/team?action=update-player&player_id='+player.player_id);
-        //    alert('');
             var button_edit = $('<button>');
             var button_cancel = $('<button>');
+
+            $('.div-button').empty();
+            $('.fieldset-team-admin form').attr("action",getRequestUrl() + '/admin/team?action=update-player&player_id='+player.player_id);
 
             $(".fieldset-team-admin legend").text("Modifier un joueur");
             $(".fieldset-team-admin input[name=name]").attr("value",player.name);
@@ -77,11 +78,5 @@ class adminTeamManager {
             button_cancel.text("Annuler");
 
         }
-        getNewTablePlayers(newListPlayers){
-            $('.table-team-admin tbody').empty();
 
-            for (var player of newListPlayers){
-                this.getLineListPlayers(player);
-            }
-        }
 }

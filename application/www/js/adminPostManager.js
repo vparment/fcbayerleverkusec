@@ -2,29 +2,20 @@
 
 class adminPostManager {
         constructor(){
-
             $(".delete-post").on("click",(event)=>this.OnDeletePostClick(event));
             $(".edit-post").on("click",(event)=>this.OnEditPostClick(event));
         }
+// On delete post 
         OnDeletePostClick(event){
-            console.log(event);
-
-            //console.log(event);
             var post_id = $(event.currentTarget).data('id');
-            //$.getJSON('search_post.php?word='+beginning_title_post,GetListPost);
             $.getJSON(getRequestUrl() + '/admin/post?action=delete-post&post_id='+post_id,this.getNewTablePosts.bind(this)) ;
-            //$.getJSON('admin.php?action=delete-post&id='+post_id,(reponseAjax)=>this.getNewTablePosts(reponseAjax)) ;
         }
-        OnEditPostClick(event){
-            console.log(event);
-            var post_id = $(event.currentTarget).data('id');
-
-            //$.getJSON('search_post.php?word='+beginning_title_post,GetListPost);
-//getRequestUrl() + '/admin
-            $.getJSON(getRequestUrl() + '/admin/post?action=edit-post&post_id='+post_id,this.getNewFormPost.bind(this));
-            //$.getJSON('admin.php?action=delete-post&id='+post_id,(reponseAjax)=>this.getNewTablePosts(reponseAjax)) ;    getRequestUrl() + '/order/payment?id='
+        getNewTablePosts(newListPosts){
+            $('.table-post-admin tbody').empty();
+            for (var post of newListPosts){
+                this.getLineListPosts(post);
+            }
         }
-
         getLineListPosts(post){
             var tr_post = $('<tr>');
             var td_title = $('<td>');
@@ -54,14 +45,19 @@ class adminPostManager {
             td_content.text(post.content);
             td_description.text(post.description);
         }
-        getNewFormPost(post){
-            console.log(post);
-            console.log(post.post_id);
-            $('.div-button').empty();
-            $('.fieldset-post-admin form').attr("action",getRequestUrl() + '/admin/post?action=update-post&post_id='+post.post_id);
-            var button_edit = $('<button>');
-            var button_cancel = $('<button>')
+// On edit post
+        OnEditPostClick(event){
+            var post_id = $(event.currentTarget).data('id');
+            $.getJSON(getRequestUrl() + '/admin/post?action=edit-post&post_id='+post_id,this.getNewFormPost.bind(this));
+        }
 
+        getNewFormPost(post){
+            var button_edit = $('<button>');
+            var button_cancel = $('<button>');
+
+            $('.div-button').empty();
+
+            $('.fieldset-post-admin form').attr("action",getRequestUrl() + '/admin/post?action=update-post&post_id='+post.post_id);
             $(".fieldset-post-admin legend").text("Modifier un article");
             $(".fieldset-post-admin input[name=title]").attr("value",post.title);
             $(".fieldset-post-admin textarea").text(post.content);
@@ -74,11 +70,5 @@ class adminPostManager {
             button_cancel.text("Annuler");
 
         }
-        getNewTablePosts(newListPosts){
-            $('.table-post-admin tbody').empty();
-            for (var post of newListPosts){
-                //console.log(this.bind(adminManager));
-                this.getLineListPosts(post);
-            }
-        }
+
 }

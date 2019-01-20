@@ -2,6 +2,9 @@
 
 class CompetitionController
 {
+    public function __construct(){
+        $this->competitionControl  = new CompetitionModel();
+    }
     public function httpGetMethod(Http $http, array $queryFields)
     {
     	/*
@@ -10,10 +13,6 @@ class CompetitionController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
-         $competitionControl  = new CompetitionModel();
-         // $players = $playerControl->selectAllPlayersWithPosition();
-         // return["players"=>$players];
-
     }
 
     public function httpPostMethod(Http $http, array $formFields)

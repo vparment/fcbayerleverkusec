@@ -2,6 +2,9 @@
 
 class HomeController
 {
+    public function __construct(){
+        $this->postControl  = new PostModel();
+    }
     public function httpGetMethod(Http $http, array $queryFields)
     {
     	/*
@@ -10,11 +13,9 @@ class HomeController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
-         $postControl  = new PostModel();
-         $posts = $postControl->selectAllPosts();
-         $limitPosts = $postControl->selectLimitPosts();
+         $posts = $this->postControl->selectAllPosts();
+         $limitPosts = $this->postControl->selectLimitPosts();
          return["posts"=>$posts,"limitPosts"=>$limitPosts];
-
     }
 
     public function httpPostMethod(Http $http, array $formFields)

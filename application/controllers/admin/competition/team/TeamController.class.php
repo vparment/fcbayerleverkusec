@@ -2,6 +2,9 @@
 
 class TeamController
 {
+    public function __construct(){
+        
+    }
     public function httpGetMethod(Http $http, array $queryFields)
     {
 
@@ -10,7 +13,7 @@ class TeamController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-        
+
 
     }
 }

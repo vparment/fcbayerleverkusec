@@ -1,4 +1,3 @@
-// compileCompressed: style.css
 @import 'default';
 
 /*****************************HOMEPAGE****************************/
@@ -58,7 +57,6 @@
 }
 
 .aside-homepage {
-	//width: 20%;
 	margin:0;
 }
 
@@ -97,12 +95,9 @@
     }
     .background-club {
         height: 50rem;
-        //background-image: url('../images/site/background-logo.png');
-        //opacity:0.5;
         background-size: 30rem 30rem;
         background-repeat: no-repeat;
         background-position: center;
-        //background-position:  top 10rem;
         .block {
             width: 60%;
             padding: 2rem;
@@ -118,13 +113,11 @@
                 font-size: 2rem;
                 color :$color4;
                 text-shadow: 0.02rem 0.02rem 0.02rem $color4;
-
             }
-        //    border-radius: 4rem;
         }
 
     }
-}
+} 
 
 /*****************************TEAM******************************/
 
@@ -190,17 +183,7 @@
         }
         td:nth-child(7){
             width :30rem;
-
         }
-        // td:nth-child(8){
-        //
-        //     //display: flex;
-    	// 	background-color: white;
-    	// 	border: none;
-        //     padding: 0;
-    	// 	font-weight: bold;
-    	// }
-
     }
 }
 
@@ -231,7 +214,7 @@
 	}
 }
 
-/*****************************TEAM-ADMIN** ****************************/
+/*****************************TEAM-ADMIN******************************/
 .team-admin {
     display: flex;
     flex-wrap: wrap;
@@ -264,7 +247,7 @@
     }
 }
 
-/*****************************COMPETITION-ADMI N******************************/
+/*****************************COMPETITION-ADMIN******************************/
 
 .table-calendar-admin {
     margin-bottom:  2rem;
@@ -286,8 +269,6 @@
     }
     tbody{
         td:nth-child(8){
-
-            //display: flex;
     		background-color: white;
     		border: none;
             padding: 0;

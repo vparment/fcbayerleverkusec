@@ -17,16 +17,13 @@
         </ul>
     </nav>
 
-
 <?php else: ?>
-    <h2>championnat : <a href="<?= $requestUrl ?>/competition/championship?competition_id=<?=$_GET['competition_id']?>"><?=$championship['name'];?></a></h2>
+    <h2>championnat :
+        <a href="<?= $requestUrl ?>/competition/championship?competition_id=<?=$_GET['competition_id']?>">
+        <?=$championship['name'];?>
+        </a>
+    </h2>
     <div class="competition-championnats">
-        <!-- <nav class="admin-nav">
-            <ul>
-                <li><h3>Calendrier</h3></li>
-                <li><h3>Classement</h3></li>
-            </ul>
-        </nav> -->
         <div class="calendar-championship">
             <?php   $i = 0;
                     $j = 0;
@@ -68,11 +65,7 @@
                                 <td class="resultat_domicile">
                                     <?=$calendarLine['resultat_domicile']?>
                                 </td>
-
-
                             <?php endif ;?>
-
-
                             <?php if($calendarLine['resultat_exterieur'] > $calendarLine['resultat_domicile']) : ?>
                             <td class="resultat_exterieur background-yellow font-bold">
                                 <?=$calendarLine['resultat_exterieur']?>
@@ -100,8 +93,6 @@
                                 <?php endif ;?>
                             </td>
                             <?php endif ; ?>
-
-
                             <?php if(!$calendarLine['resultat_exterieur'] && !$calendarLine['resultat_domicile'] && $calendarLine['exterieur'] != "EXEMPT" && $calendarLine['domicile'] != "EXEMPT") :?>
                             <td class="lieu"><?=$calendarLine['lieu']?></td>
                             <?php endif ;?>

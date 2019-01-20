@@ -33,6 +33,7 @@
         <nav class="menu-nav">
             <ul>
                 <li class="li-logo">
+
                     <a class="bottom-header-logo" href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/site/logo.png" alt="logo Bayer leverkusec"></a>
                 </li>
                 <li>
@@ -71,11 +72,13 @@
     </ul>
 </nav> -->
 
+<div class="background-main">
 <main class="container">
+
     <!-- Affichage du template lié à la vue -->
     <?php include $this->viewData['template'] ?>
 </main>
-
+</div>
 <!-- Pied de page commun -->
 <footer>
     <nav class="menu-footer">

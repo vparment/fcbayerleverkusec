@@ -2,6 +2,8 @@
 
 class AdminController
 {
+    public function __construct(){
+    }
     public function httpGetMethod(Http $http, array $queryFields)
     {
     	/*
@@ -15,7 +17,7 @@ class AdminController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-        
+
     	/*
     	 * Méthode appelée en cas de requête HTTP POST
     	 *

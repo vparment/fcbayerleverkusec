@@ -2,41 +2,40 @@
 
 class PostController
 {
+    public function __construct(){
+        $this->postControl  = new PostModel();
+    }
     public function httpGetMethod(Http $http, array $queryFields)
     {
-
-        $postControl  = new PostModel();
         if (isset($_GET['action'])) {
             if($_GET['action'] == "delete-post"){
-            $postControl->deletePost($_GET['post_id']);
-            $posts = $postControl->selectAllPosts();
-            echo json_encode($posts);
-            exit();
+                $this->postControl->deletePost($_GET['post_id']);
+                $posts = $this->postControl->selectAllPosts();
+                echo json_encode($posts);
+                exit();
             }
             if($_GET['action'] == "edit-post" && isset($_GET['post_id'])){
-                $post = $postControl->selectOnePost($_GET['post_id']);
+                $post = $this->postControl->selectOnePost($_GET['post_id']);
                 echo json_encode($post);
                 exit();
             }
         }
-        $posts = $postControl->selectAllPosts();
+        $posts = $this->postControl->selectAllPosts();
         return ["posts"=>$posts];
     }
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-        $postControl  = new PostModel();
         if (isset($_GET['action'])) {
             if($_GET['action'] == "insert-post")
             {
-                $postControl->insertPost($_POST['title'],$_POST['content'],$_POST['description']);
+                $this->postControl->insertPost($_POST['title'],$_POST['content'],$_POST['description']);
             }
             if($_GET['action'] == "update-post" && !empty($_POST)){
-                $postControl->updatePost($_POST['title'],$_POST['content'],$_POST['description'],$_GET['post_id']);
+                $this->postControl->updatePost($_POST['title'],$_POST['content'],$_POST['description'],$_GET['post_id']);
             }
         }
-        $posts = $postControl->selectAllPosts();
+        $posts = $this->postControl->selectAllPosts();
         return ["posts"=>$posts];
-
     }
 }

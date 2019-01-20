@@ -3,14 +3,12 @@
 class CalendarModel{
     function selectCalendarLinesByCompetitionId($competition_id){
         $database = new Database();
-
         $calendarLines =$database->query("
             SELECT  *
             FROM calendarline
             WHERE competition_id = ?
             ORDER BY calendarLine_id DESC
         ",[$competition_id]);
-
         return $calendarLines;
     }
     function selectOneCalendarByCompetitionId($competition_id){
@@ -20,9 +18,7 @@ class CalendarModel{
             FROM calendar_list
             WHERE competition_id = ?
         ",[$competition_id]);
-
         return $calendar;
-
     }
     function selectOneCalendarLine($calendarLine_id){
         $database = new Database();
@@ -31,13 +27,10 @@ class CalendarModel{
             FROM calendarline
             WHERE calendarLine_id = ?
         ",[$calendarLine_id]);
-
         return $calendarLine;
-
     }
     function insertCalendarList($competition_id, $competition_code,$matchPerDay){
         $database = new Database();
-
         $database->executeSql("
             INSERT INTO calendar_list (competition_id, competition_code,matchPerDay)
             VALUES (?,?,?)
@@ -45,12 +38,10 @@ class CalendarModel{
     }
     function insertCalendarLine($competition_id,$num_day){
         $database = new Database();
-
         $database->executeSql("
             INSERT INTO calendarline (competition_id, num_day)
             VALUES (?,?)
         ",[$competition_id,$num_day]);
-
     }
     function insertCalendarLines($competition_id,$nb_team){
         $i = 1;
@@ -60,7 +51,6 @@ class CalendarModel{
         $nb_rencontreParJournee = $nb_team/2;
         $nb_rencontreTotalParEquipe = $nb_team-1;
         $total_match = $nb_rencontreParJournee * $nb_rencontreTotalParEquipe;
-
         while($nb_rencontreTotalParEquipe > 0){
             $this->insertCalendarLine($competition_id,$nb_rencontreTotalParEquipe);
             if($i % $nb_rencontreParJournee == 0){
@@ -72,7 +62,6 @@ class CalendarModel{
     }
     function updateCalendarLine($newDate,$newTime,$newDomicile_id,$newDomicile,$newResultatDomicile,$newResultatExterieur,$newExterieur_id,$newExterieur,$newLieu,$calendarLine_id){
         $database = new Database();
-        //var_dump($newDate);
         $database->executeSql("
             UPDATE calendarline
             SET date=?, time = ?, domicile_id = ?, domicile = ?, resultat_domicile = ?, resultat_exterieur = ?, exterieur_id = ?, exterieur = ?, lieu = ?

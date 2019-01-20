@@ -1,7 +1,6 @@
 <?php
 
-class PostModel{    ////OK///
-
+class PostModel{
     function selectAllPosts(){
         $database = new Database();
         $posts = $database->query("
@@ -33,7 +32,6 @@ class PostModel{    ////OK///
     }
     function insertPost($title,$content,$description){
         $database = new Database();
-
         $database->executeSql("
             INSERT INTO post (title,content,description,date)
             VALUES (?,?,?,NOW())
@@ -41,7 +39,6 @@ class PostModel{    ////OK///
     }
     function updatePost($title,$content,$description,$post_id){
         $database = new Database();
-
         $database->executeSql("
             UPDATE post
             SET title=?, content=?, description=? , date=NOW()
@@ -50,7 +47,6 @@ class PostModel{    ////OK///
     }
     function deletePost($post_id){
         $database = new Database();
-
         $database->executeSql("
             DELETE FROM post WHERE post_id=?
         ",[$post_id]);

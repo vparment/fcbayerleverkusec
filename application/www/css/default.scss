@@ -1,8 +1,6 @@
 
 /************************VARIABLE*****************************/
 $color1 : rgb(240, 242, 243); ////GRIS BLANC////
-
-
 $color2 : rgb(139, 157, 187); ////GRIS BLEU////
 $color2a : rgba(139, 157, 187,0.5); ////GRIS BLEU////
 
@@ -16,11 +14,22 @@ $color4 : rgb(44, 68, 124); ////BLEU FONCE////
 	box-sizing:border-box;
 }
 
+.background-main {
+	background-image: url('../images/site/stadium1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+main a {
+	text-decoration: none;
+}
+
+
 body {
 	margin:0;
 	font-family: sans-serif;
 	font-size: 1.5rem;
-	border :1px solid black;
 }
 
 .container {
@@ -37,23 +46,9 @@ body {
 
 html {
 	font-size:62.5%;
-	//background-color: grey;
 }
 
 /************************ELEMENTS*********************/
-
-h1{
-	// color:$color3;
-	// text-shadow: 0.1rem 0.1rem 0.1rem $color4;
-	// text-shadow: 0.1rem 0.1rem 0.1rem $color4;
-	// color:$color4;
-	// padding:2rem 0 0rem 0;
-	// margin:0;
-	// font-size: 4rem;
-	// i {
-	// 	padding: 0rem 2rem;
-	// }
-}
 
 h2 {
 	margin:0;
@@ -101,10 +96,6 @@ ul {
 	list-style: none;
 }
 
-a {
-	//text-decoration: none;
-}
-
 main {
 	padding :0rem 2rem;
 }
@@ -149,7 +140,6 @@ fieldset {
 		}
 	}
 	.div-button{
-
 		input,
 		button {
 			border-radius: 1rem;
@@ -157,8 +147,6 @@ fieldset {
 			background-color: $color1;
 			color :$color4;
 			box-shadow: 0rem 0rem 0.3rem 0.1rem $color2;
-
-
 		}
 
 	}
@@ -173,7 +161,7 @@ fieldset {
 	ul {
 		display: flex;
 		justify-content: space-around;
-        padding:1rem;
+        padding:1rem; 
         a {
             border-radius: 4rem;
 			padding: 1rem;
@@ -185,11 +173,11 @@ fieldset {
 }
 
 .block {
-	border: 0.2rem solid $color4;
-	border-top-left-radius: 0.5rem;
-	border-bottom-right-radius: 0.5rem;
-	background-color:$color2a;
-	box-shadow: 0rem 0rem 0.5rem 0.1rem $color2;
+	border: 0.1rem solid $color2;
+	// border-top-left-radius: 0.5rem;
+	// border-bottom-right-radius: 0.5rem;
+	background-color: rgba(256,256,256,1);
+	box-shadow: 0rem 0rem 0.2rem 0.1rem white;
 }
 
 .fa-beer{
@@ -202,7 +190,6 @@ fieldset {
 		vertical-align: top;
 	}
 }
-
 
 .input {
 	padding: 0.5rem;
@@ -234,7 +221,6 @@ header {
 		grid-template-columns: 1fr 18rem 92rem 1fr;
 		.h1 {
 			grid-column: 3 /span 1;
-			//grid-column: 2 /span 1;
 			text-decoration: none;
 			h1 {
 			color:$color3;
@@ -253,7 +239,6 @@ header {
 		}
 	}
 	.header-bottom {
-		//transition: height 2.3s cubic-bezier(.215,.61,.355,1);
 		display: grid;
 		grid-template-rows: repeat(5,2rem);
 		grid-template-columns: 1fr 5rem  8rem 92rem 5rem 1fr;
@@ -279,7 +264,6 @@ header {
 					}
 				}
 				li{
-				//	text-align: center;
 					align-self: center;
 					.hide {
 						padding:  0.3rem;
@@ -310,7 +294,6 @@ header {
 	position:fixed;
 	top :0;
 	width :100%;
-//	transition: height 2.3s cubic-bezier(.215,.61,.355,1);
 }
 
 .headerIsSticky + main {
@@ -332,36 +315,6 @@ header {
 			grid-column: 1 / span 4;
 			grid-row: 7/ span 3;
 		}
-
-
-//
-// header {
-// 	text-align: center;
-// 	img {
-// 		height:5rem;
-// 	}
-// 	.line-shadow {
-// 		height:0.5rem;
-// 		box-shadow: 0px 5px 5px 0px $color2;
-// 	}
-// 	.menu-nav{
-// 		padding-top: 2rem;
-// 		ul {
-// 			clip-path: polygon(4% 0%, 96% 0%, 100% 100%,  0% 100%);
-// 			//box-shadow: 0.5rem 0.5rem 0.5rem 0 $color2;
-// 			display:flex;
-// 			justify-content: space-around;
-// 			padding:2rem;
-// 			background-color : $color4;
-// 			a {
-// 				color :$color1;
-// 				font-weight: bold;
-// 				font-size: 1.6rem;
-// 			}
-// 		}
-// 	}
-// }
-
 
 /*****************************FOOTER******************************/
 

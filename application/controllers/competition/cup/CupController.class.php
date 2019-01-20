@@ -10,9 +10,6 @@ class CupController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
-       //  $competitionControl  = new CompetitionModel();
-         // $players = $playerControl->selectAllPlayersWithPosition();
-         // return["players"=>$players];
         header('Location: https://footfsgtidf.org/calendriers.php?g=4349');
         exit();
     }
